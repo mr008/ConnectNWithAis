@@ -1,6 +1,6 @@
 from typing import List, Any
-from . import move
-from .board import Board, BoardError
+from ConnectNGame.src import move
+from ConnectNGame.src.board import Board, BoardError
 
 
 class Player(object):

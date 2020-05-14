@@ -1,6 +1,6 @@
 from typing import List, Optional
-from . import player
-from .board import Board
+from ConnectNGame.src.players import player
+from ConnectNGame.src.board import Board
 
 
 class Game(object):
