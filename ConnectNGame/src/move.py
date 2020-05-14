@@ -1,7 +1,9 @@
 from typing import Optional, Any
-from .players import player
-from . import board
-from . import game
+
+from ConnectNGame.src import board, game
+from ConnectNGame.src.players import player
+
+
 
 
 class MoveError(Exception):
