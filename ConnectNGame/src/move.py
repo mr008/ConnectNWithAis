@@ -1,5 +1,5 @@
 from typing import Optional, Any
-from . import player
+from .players import player
 from . import board
 from . import game
 

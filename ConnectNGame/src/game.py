@@ -1,5 +1,5 @@
 from typing import List, Optional
-from . import player
+from .players.player import player
 from .board import Board
 
 
