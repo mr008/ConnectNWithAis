@@ -71,7 +71,7 @@ class Player(object):
         else:
             return name
 
-    def __init__(self, name: str, piece: str) -> None:
+    def __init__(self, name: object, piece: object) -> object:
         self.name = name
         self.piece = piece
 
