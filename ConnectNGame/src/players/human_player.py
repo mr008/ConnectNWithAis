@@ -76,7 +76,7 @@ class HumanPlayer(Player):
 
 
 
-    def get_move(self) -> "move.Move":
+    def get_move(self,board) -> "move.Move":
         """
         Get a move from the user
         :return: the move the user made
@@ -85,13 +85,3 @@ class HumanPlayer(Player):
         str_move = input(f'{self.name}, please enter the column you want to play in: ')
         return move.Move.from_string(self, str_move)
 
-    def __str__(self) -> str:
-        return self.name
-
-    def __eq__(self, other: Any) -> bool:
-        return isinstance(other, Player) and \
-               self.name == other.name and \
-               self.piece == other.piece
-
-    def __ne__(self, other: Any) -> bool:
-        return not self == other

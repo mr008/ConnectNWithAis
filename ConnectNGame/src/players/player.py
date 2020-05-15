@@ -18,15 +18,18 @@ class Player(ABC):
         """
         while True:
             try:
-                player_move = self.get_move()
+                player_move = self.get_move(the_board)
                 player_move.make(the_board)
             except (move.MoveError, BoardError) as error:
                 print(error)
             else:
                 return player_move
-    @abstractmethod
-    def get_move(self) -> "move.Move":
 
+
+
+    @abstractmethod
+    def get_move(self,board) -> "move.Move":
+        pass
 
     def __str__(self) -> str:
         return self.name
