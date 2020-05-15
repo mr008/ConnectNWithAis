@@ -1,9 +1,9 @@
 from typing import List, Any
 from ConnectNGame.src import move
 from ConnectNGame.src.board import Board, BoardError
+from abc import ABC, abstractmethod
 
-
-class Player(object):
+class Player(ABC):
 
     @staticmethod
     def create_from_user_input(players: List["Player"], blank_char: str) -> "Player":
