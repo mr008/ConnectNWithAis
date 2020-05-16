@@ -77,7 +77,7 @@ class HumanPlayer(Player):
 
 
 
-    def get_move(self) -> "move.Move":
+    def get_move(self,board) -> "move.Move":
         """
         Get a move from the user
         :return: the move the user made
