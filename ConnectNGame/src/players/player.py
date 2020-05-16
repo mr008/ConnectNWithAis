@@ -25,8 +25,8 @@ class Player(ABC):
             else:
                 return player_move
     @abstractmethod
-    def get_move(self) -> "move.Move":
-
+    def get_move(self):
+        ...
 
     def __str__(self) -> str:
         return self.name
