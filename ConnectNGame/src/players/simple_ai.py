@@ -7,11 +7,8 @@ from typing import List
 
 class SimpleAI(RandomAI):
     ...
-    def __init__(self):
-        super().__init__()
-
-    def get_move(self) -> "move.Move":
-        pass
+    def __init__(self, name: object, piece: object):
+        super().__init__(name,piece)
 
     def get_simple_name(players: List["Player"],num_player: int):
         name = "SimpleAI " + str(num_player)
@@ -23,10 +20,11 @@ class SimpleAI(RandomAI):
         return SimpleAI(name, piece)
 
     def get_move(self,board,game):
+        print('work')
         ai_piece=self.piece
         if self.name[-1] == 2:
             opp_number=0
-        else self.name[-1] == 1:
+        elif self.name[-1] == 1:
             opp_number=1
         for col in range(board.num_cols):
             board.add_piece_to_column(ai_piece,col)
@@ -45,5 +43,5 @@ class SimpleAI(RandomAI):
                 board.sub_piece_to_column(opp_piece, col)
                 return move.Move(self, choice)
             board.sub_piece_to_column(opp_piece, col)
-        super().get_move()
+        super().get_move(board)
 
