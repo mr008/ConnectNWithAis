@@ -63,6 +63,13 @@ class Board(object):
         """
         return self._number_of_pieces_in_columns[column] >= self.num_rows
 
+    def get_column_pieces(self, column: int) -> int:
+        """
+        :param column: the column to check
+        :return: Whether column is full or not
+        """
+        return self._number_of_pieces_in_columns[column]
+
     def contains_blank_character(self, row: int, column: int) -> bool:
         """
         Checks whether row,col contains a blank character
