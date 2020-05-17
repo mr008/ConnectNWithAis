@@ -1,4 +1,6 @@
 import sys
+from random import random
+from random import seed
 from ConnectNGame.src.game import Game
 
 
@@ -7,7 +9,7 @@ def main() -> None:
     Run the program
     :return:
     """
-    address = "E:\coding programs\ConnectNWithAis\config_files\\3X3X3.txt"
+    address = "/Users/audeclairemoats/PycharmProject/ConnectN/config_files/3X3X3.txt"
     connectn = Game.create_game_from_file(address)
     connectn.play()
 """
@@ -22,6 +24,7 @@ def main() -> None:
     else:
         print('Too many command line arguments ')
         print('Usage: python3 main.py path_to_config_file')
+    "E:\coding programs\ConnectNWithAis\config_files\\3X3X3.txt"
 """
 
 if __name__ == '__main__':

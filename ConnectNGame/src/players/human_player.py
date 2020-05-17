@@ -16,9 +16,9 @@ class HumanPlayer(Player):
         """
         while True:
             try:
-                name = Player.get_valid_name(players)
-                piece = Player.get_valid_piece(players, blank_char)
-                return Player(name, piece)
+                name = HumanPlayer.get_valid_name(players)
+                piece = HumanPlayer.get_valid_piece(players, blank_char)
+                return HumanPlayer(name, piece)
             except ValueError as error:
                 print(error)
 

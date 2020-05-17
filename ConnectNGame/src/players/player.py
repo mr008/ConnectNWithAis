@@ -25,7 +25,9 @@ class Player(ABC):
             else:
                 return player_move
 
-
+    @abstractmethod
+    def get_valid_piece(self):
+        pass
 
     @abstractmethod
     def get_move(self,board) -> "move.Move":
