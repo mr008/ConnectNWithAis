@@ -1,8 +1,8 @@
 from typing import List, Optional
+from ConnectNGame.src.players.random_ai import RandomAI
 from ConnectNGame.src.players import player
 from ConnectNGame.src.board import Board
-
-
+from ConnectNGame.src.players.human_player import HumanPlayer
 class Game(object):
 
     @staticmethod
@@ -44,7 +44,7 @@ class Game(object):
     @property
     def cur_player(self) -> "player.Player":
         """
-        :return: the player whoose turn it is
+        :return: the player whose turn it is
         """
         return self.players[self.cur_player_turn]
 
@@ -58,7 +58,7 @@ class Game(object):
     @property
     def is_tie_game(self) -> bool:
         """
-        Check if the game ended ina tie.
+        Check if the game ended in a tie.
         Can only be safely called after checking if someone won the game
         :return: if the game ended in a tie
         """
@@ -69,9 +69,17 @@ class Game(object):
         Create the players for this game
         :return: None
         """
+        #Need to write the code to setup AI players
         num_players = 2
+        player_num = 0
         for _ in range(num_players):
-            self.players.append(player.Player.create_from_user_input(self.players, self.board.blank_char))
+            player_num += 1
+            type = input(f'Choose the type for Player {player_num}\n Enter Human or Random or Simple:').strip()
+            if type[0].lower() == 'h':
+                self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
+            elif type[0].lower() == 'r':
+                self.players.append(RandomAI.create_Random(self.players,self.board.blank_char))
+
 
     def play(self) -> None:
         """
