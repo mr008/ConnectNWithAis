@@ -12,4 +12,5 @@ class SimpleAI(RandomAI):
         pass
 
     def get_simple_name(self,players: List["Player"]):
-        self.name = "SimpleAI " + str(len(players) + 1)
+        name = "SimpleAI " + str(len(players) + 1)
+        return name
