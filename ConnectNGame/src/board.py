@@ -109,8 +109,7 @@ class Board(object):
         :param column: the column to add the piece to
         :return: the row the piece was added to
         :raises: ValueError if piece is not a single character
-        :raises: ColumnFullError if the column played in is full
-        :raises: ColumnOutOfBondsError if the column selected is out of bounds
+        :raises: ColumnFullError if Kor if the column selected is out of bounds
         """
         if len(piece) != 1:
             raise ValueError(f'Piece may only be a single character but is actually {piece}')

@@ -1,6 +1,6 @@
 from .player import Player
 from ConnectNGame.src.players.random_ai import RandomAI
-from ConnectNGame.src.game import Game
+from ConnectNGame.src import game
 from ConnectNGame.src import move
 from typing import List
 #inherits get_piece from RandomAi
@@ -23,11 +23,11 @@ class SimpleAI(RandomAI):
         return SimpleAI(name, piece)
 
     def get_move(self,board,game):
-        ai_piece=
+        ai_piece=1
         for col in range(board.num_cols):
             board.add_piece_to_column(ai_piece,col)
             number_pieces_column=board.get_column_pieces()
-            if game.is_part_of_win(number_pieces_column+1,col) == True:
+            if game.Game.is_part_of_win(number_pieces_column+1,col) == True:
                 choice=col
                 board.sub_piece_to_column(ai_piece, col)
                 return move.Move(self,choice)
@@ -36,7 +36,7 @@ class SimpleAI(RandomAI):
         for col in range(board.num_cols):
             board.add_piece_to_column(opp_piece, col)
             number_pieces_column = board.get_column_pieces()
-            if game.is_part_of_win(number_pieces_column + 1, col) == True:
+            if game.Game.is_part_of_win(number_pieces_column + 1, col) == True:
                 choice = col
                 board.sub_piece_to_column(opp_piece, col)
                 return move.Move(self, choice)
