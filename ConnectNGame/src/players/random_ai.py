@@ -8,7 +8,7 @@ class RandomAi(Player):
 
     def __init__(self,):
         super.__init__(name,piece)
-        #think about what else we need here
+        #TODO think about what else we need here
 
     def get_move(self,board) -> "move.Move":
         possible_col=[]
