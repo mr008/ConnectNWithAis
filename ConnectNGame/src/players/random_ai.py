@@ -16,6 +16,7 @@ class RandomAI(Player):
                 possible_col.append(col)
         choice=random.choice(possible_col)
         return move.Move(self,choice)
+
     @staticmethod
     def create_Random(players: List["Player"], blank_char: str):
         name = RandomAI.get_name(players)

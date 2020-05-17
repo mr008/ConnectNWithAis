@@ -1,5 +1,6 @@
 from typing import List, Optional
 from ConnectNGame.src.players.random_ai import RandomAI
+from ConnectNGame.src.players.simple_ai import SimpleAI
 from ConnectNGame.src.players import player
 from ConnectNGame.src.board import Board
 from ConnectNGame.src.players.human_player import HumanPlayer
@@ -79,6 +80,8 @@ class Game(object):
                 self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
             elif type[0].lower() == 'r':
                 self.players.append(RandomAI.create_Random(self.players,self.board.blank_char))
+            elif type[0].lower == 's':
+                self.players.append(SimpleAI.create_Simple(self.players, self.board.blank_char))
 
 
     def play(self) -> None:
