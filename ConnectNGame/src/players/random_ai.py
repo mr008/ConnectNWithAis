@@ -18,14 +18,14 @@ class RandomAI(Player):
         return move.Move(self,choice)
 
     @staticmethod
-    def create_Random(players: List["Player"], blank_char: str):
-        name = RandomAI.get_name(players)
+    def create_Random(players: List["Player"], blank_char: str,num_player: int):
+        name = RandomAI.get_name(players, num_player)
         piece = RandomAI.get_valid_piece(players, blank_char)
         return RandomAI(name,piece)
 
     @staticmethod
-    def get_name(players: List["Player"]):
-        name = "RandomAI " + str(len(players) + 1)
+    def get_name(players: List["Player"],num_player: int):
+        name = "RandomAI " + str(num_player)
         return name
 
     @staticmethod

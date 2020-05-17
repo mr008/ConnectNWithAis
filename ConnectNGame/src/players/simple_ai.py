@@ -1,6 +1,5 @@
 from .player import Player
 from ConnectNGame.src.players.random_ai import RandomAI
-from ConnectNGame.src.game import Game
 from ConnectNGame.src import move
 from typing import List
 #inherits get_piece from RandomAi
@@ -13,8 +12,8 @@ class SimpleAI(RandomAI):
     def get_move(self) -> "move.Move":
         pass
 
-    def get_simple_name(players: List["Player"]):
-        name = "SimpleAI " + str(len(players) + 1)
+    def get_simple_name(players: List["Player"],num_player: int):
+        name = "SimpleAI " + str(num_player)
         return name
 
     def create_Simple(players: List["Player"], blank_char: str):
