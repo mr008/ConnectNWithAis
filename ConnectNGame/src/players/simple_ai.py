@@ -13,8 +13,8 @@ class SimpleAI(RandomAI):
     def get_move(self) -> "move.Move":
         pass
 
-    def get_simple_name(players: List["Player"]):
-        name = "SimpleAI " + str(len(players) + 1)
+    def get_simple_name(players: List["Player"],num_player: int):
+        name = "SimpleAI " + str(num_player)
         return name
 
     def create_Simple(players: List["Player"], blank_char: str):
@@ -23,7 +23,11 @@ class SimpleAI(RandomAI):
         return SimpleAI(name, piece)
 
     def get_move(self,board,game):
-        ai_piece=1
+        ai_piece=self.piece
+        if self.name[-1] == 2:
+            opp_number=0
+        else self.name[-1] == 1:
+            opp_number=1
         for col in range(board.num_cols):
             board.add_piece_to_column(ai_piece,col)
             number_pieces_column=board.get_column_pieces()
@@ -32,7 +36,7 @@ class SimpleAI(RandomAI):
                 board.sub_piece_to_column(ai_piece, col)
                 return move.Move(self,choice)
             board.sub_piece_to_column(ai_piece, col)
-        opp_piece = self.piece
+        opp_piece = game.players[opp_number].piece
         for col in range(board.num_cols):
             board.add_piece_to_column(opp_piece, col)
             number_pieces_column = board.get_column_pieces()

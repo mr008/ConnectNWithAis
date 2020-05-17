@@ -79,9 +79,9 @@ class Game(object):
             if type[0].lower() == 'h':
                 self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
             elif type[0].lower() == 'r':
-                self.players.append(RandomAI.create_Random(self.players,self.board.blank_char))
+                self.players.append(RandomAI.create_Random(self.players,self.board.blank_char,player_num))
             elif type[0].lower == 's':
-                self.players.append(SimpleAI.create_Simple(self.players, self.board.blank_char))
+                self.players.append(SimpleAI.create_Simple(self.players, self.board.blank_char,player_num))
 
 
     def play(self) -> None:
