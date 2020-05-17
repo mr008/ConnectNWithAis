@@ -102,6 +102,29 @@ class Board(object):
             self._number_of_pieces_in_columns[column] += 1
             return row
 
+    def sub_piece_to_column(self, piece: str, column: int) -> int:
+        """
+        add the piece to the specified column
+        :param piece: the piece to add. Should only be a single character
+        :param column: the column to add the piece to
+        :return: the row the piece was added to
+        :raises: ValueError if piece is not a single character
+        :raises: ColumnFullError if the column played in is full
+        :raises: ColumnOutOfBondsError if the column selected is out of bounds
+        """
+        if len(piece) != 1:
+            raise ValueError(f'Piece may only be a single character but is actually {piece}')
+        elif not self.is_column_in_bounds(column):
+            raise ColumnOutOfBoundsError(
+                f'Your column needs to be between 0 and {self.num_cols - 1} but is actually {column}.')
+        elif self.is_column_full(column):
+            raise ColumnFullError(f'You cannot play in {column} because it is full.')
+        else:
+            row = self._number_of_pieces_in_columns[column]
+            self.contents[row][column] = piece
+            self._number_of_pieces_in_columns[column] -= 1
+            return row
+
     def get_piece_at(self, row: int, column: int) -> str:
         """
         Get the piece at row,col
