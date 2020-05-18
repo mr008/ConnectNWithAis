@@ -1,15 +1,17 @@
 from .player import Player
 from ConnectNGame.src.players.random_ai import RandomAI
-from ConnectNGame.src import game
-from ConnectNGame.src import move
 from typing import List
+from ConnectNGame.src import move
+from ConnectNGame.src.board import Board
+from ConnectNGame.src import game
 import random
 #inherits get_piece from RandomAi
 
 class SimpleAI(RandomAI):
-    ...
-    def __init__(self,name: object, piece: object):
+
+    def __init__(self,name: object, piece: object,game: "game.Game"):
         super().__init__(name,piece)
+        self.game_playing = game
 
 
     def get_simple_name(players: List["Player"],num_player: int) -> str:
@@ -48,16 +50,14 @@ class SimpleAI(RandomAI):
         for col in range(board.num_cols):
             if board.is_column_full(col) == False:
                 possible_col.append(col)
-
         choice = random.choice(possible_col)
         return move.Move(self, choice)
 
 
-'''
-    ai_piece=self.piece
+    '''ai_piece=self.piece
         if self.name[-1] == '2':
             opp_number=0
-        elif self.name[-1] == 1:
+        elif self.name[-1] == '1':
             opp_number=1
         for col in range(board.num_cols):
             board.add_piece_to_column(ai_piece,col)
@@ -76,5 +76,6 @@ class SimpleAI(RandomAI):
                 board.sub_piece_to_column(opp_piece, col)
                 return move.Move(self, choice)
             board.sub_piece_to_column(opp_piece, col)
-                    super().get_move()
-'''
+            super().get_move(board)
+    '''
+
