@@ -1,0 +1,28 @@
+        if self.game_playing.players[0] == self:
+            opp = self.game_playing.players[1]
+        else:
+            opp = self.game_playing.players[0]
+        for cols in range(board.num_cols):
+            if not board.is_column_full(cols):
+                potential_move = move.Move(self, cols)
+                potential_move.make(board)
+                if potential_move.ends_game(self.game_playing):
+                    board.contents[potential_move.row][cols] = board.blank_char
+                    return move.Move(self, cols)
+                else:
+                    board.contents[potential_move.row][cols] = board.blank_char
+        for coln in range(board.num_cols):
+            if not board.is_column_full(coln):
+                opp_move = move.Move(opp, coln)
+                opp_move.make(board)
+                if opp_move.ends_game(self.game_playing):
+                    board.contents[opp_move.row][coln] = board.blank_char
+                    return move.Move(self, coln)
+                else:
+                    board.contents[opp_move.row][coln] = board.blank_char
+        possible_col = []
+        for col in range(board.num_cols):
+            if board.is_column_full(col) == False:
+                possible_col.append(col)
+        choice = random.choice(possible_col)
+        return move.Move(self, choice)
