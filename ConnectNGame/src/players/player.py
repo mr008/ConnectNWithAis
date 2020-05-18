@@ -3,12 +3,12 @@ from ConnectNGame.src import move
 from ConnectNGame.src.board import Board, BoardError
 from abc import ABC, abstractmethod
 
-class Player(ABC):
 
+
+class Player(ABC):
     def __init__(self, name: object, piece: object) -> object:
         self.name = name
         self.piece = piece
-
 
     def take_turn(self, the_board: Board) -> "move.Move":
         """

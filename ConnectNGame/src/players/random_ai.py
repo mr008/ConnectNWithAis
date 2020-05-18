@@ -3,6 +3,7 @@ from typing import List
 from .player import Player
 from ConnectNGame.src.board import Board
 from ConnectNGame.src import move
+from main import ran_seed
 
 class RandomAI(Player):
 
@@ -14,6 +15,7 @@ class RandomAI(Player):
         for col in range(board.num_cols):
             if board.is_column_full(col) == False:
                 possible_col.append(col)
+        random.seed(ran_seed)
         choice=random.choice(possible_col)
         return move.Move(self,choice)
 

@@ -9,7 +9,9 @@ def main() -> None:
     Run the program
     :return:
     """
+    global ran_seed
     address = "E:/coding programs/ConnectNWithAis/config_files/3X3X3.txt"
+    ran_seed=30
     #address = "/Users/audeclairemoats/PycharmProject/ConnectN/config_files/3X3X3.txt"
     connectn = Game.create_game_from_file(address)
     connectn.play()
@@ -21,7 +23,8 @@ def main() -> None:
     elif len(sys.argv) == 3:
         address=sys.argv[1]
         ran_seed=int(sys.argv[2])
-        random.seed(ran_seed)
+        connectn = Game.create_game_from_file(address,seed)
+        connectn.play()
 
     elif len(sys.argv) < 2:
         print('Not enough command line arguments')
