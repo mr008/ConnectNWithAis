@@ -15,10 +15,14 @@ def main() -> None:
     connectn.play()
 """
     if len(sys.argv) == 2:
-        #address=sys.argv[1]
-        address="E:\coding programs\ConnectNWithAis\config_file\3X3X3.txt"
+        address=sys.argv[1]
         connectn = Game.create_game_from_file(address)
         connectn.play()
+    elif len(sys.argv) == 3:
+        address=sys.argv[1]
+        ran_seed=int(sys.argv[2])
+        random.seed(ran_seed)
+
     elif len(sys.argv) < 2:
         print('Not enough command line arguments')
         print('Usage: python3 main.py path_to_config_file')

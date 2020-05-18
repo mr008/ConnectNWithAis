@@ -124,6 +124,11 @@ class Board(object):
             self._number_of_pieces_in_columns[column] -= 1
             return row
 
+    def remove_piece_from_column(self, column: int) -> None:
+        row = self._number_of_pieces_in_columns[column] - 1
+        self.contents[row][column] = self.blank_char
+        self._number_of_pieces_in_columns[column] -= 1
+
     def get_piece_at(self, row: int, column: int) -> str:
         """
         Get the piece at row,col

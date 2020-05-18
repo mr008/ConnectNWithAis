@@ -70,7 +70,6 @@ class Game(object):
         Create the players for this game
         :return: None
         """
-        #Need to write the code to setup AI players
         num_players = 2
         player_num = 0
         for _ in range(num_players):
@@ -78,10 +77,10 @@ class Game(object):
             type = input(f'Choose the type for Player {player_num}\nEnter Human or Random or Simple:').strip()
             if type[0].lower() == 'h':
                 self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
-            elif type[0].lower() == 'r':
+            if type[0].lower() == 'r':
                 self.players.append(RandomAI.create_Random(self.players,self.board.blank_char,player_num))
-            elif type[0].lower == 's':
-                self.players.append(SimpleAI.create_Simple(self.players, self.board.blank_char,player_num))
+            if type[0].lower() == 's':
+                self.players.append(SimpleAI.create_Simple(self.players, self.board.blank_char,player_num,self))
 
 
     def play(self) -> None:
