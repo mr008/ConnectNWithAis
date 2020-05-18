@@ -4,7 +4,6 @@ from typing import List
 from ConnectNGame.src import move
 from ConnectNGame.src.board import Board
 from ConnectNGame.src import game
-from main import ran_seed
 import random
 #inherits get_piece from RandomAi
 
@@ -47,14 +46,7 @@ class SimpleAI(RandomAI):
                     return move.Move(self, coln)
                 else:
                     board.remove_piece_from_column(coln)
-        possible_col = []
-        for col in range(board.num_cols):
-            if board.is_column_full(col) == False:
-                possible_col.append(col)
-        random.seed(ran_seed)
-        choice = random.choice(possible_col)
-        return move.Move(self, choice)
-
+        return super().get_move(board)
 
     '''ai_piece=self.piece
         if self.name[-1] == '2':
