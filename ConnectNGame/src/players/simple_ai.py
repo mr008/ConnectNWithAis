@@ -14,16 +14,46 @@ class SimpleAI(RandomAI):
         self.game_playing = game
 
 
-    def get_simple_name(players: List["Player"],num_player: int):
+    def get_simple_name(players: List["Player"],num_player: int) -> str:
         name = "SimpleAI " + str(num_player)
         return name
 
-    def create_Simple(players: List["Player"], blank_char: str,num_player: int, game: "game.Game"):
+    def create_Simple(players: List["Player"], blank_char: str,num_player: int, game: "game.Game")-> "SimpleAI":
         name = SimpleAI.get_simple_name(players,num_player)
         piece = SimpleAI.get_valid_piece(players, blank_char)
         return SimpleAI(name, piece,game)
 
-    def get_move(self,board) -> move.Move:
+    def get_move(self,board: Board) -> move.Move:
+        if self.game_playing.players[0] == self:
+            opp = self.game_playing.players[1]
+        else:
+            opp = self.game_playing.players[0]
+        for cols in range(board.num_cols):
+            if not board.is_column_full(cols):
+                potential_move = move.Move(self, cols)
+                potential_move.make(board)
+                if potential_move.ends_game(self.game_playing):
+                    board.remove_piece_from_column(cols)
+                    return move.Move(self, cols)
+                else:
+                    board.remove_piece_from_column(cols)
+        for coln in range(board.num_cols):
+            if not board.is_column_full(coln):
+                opp_move = move.Move(opp, coln)
+                opp_move.make(board)
+                if opp_move.ends_game(self.game_playing):
+                    board.remove_piece_from_column(coln)
+                    return move.Move(self, coln)
+                else:
+                    board.remove_piece_from_column(coln)
+        possible_col = []
+        for col in range(board.num_cols):
+            if board.is_column_full(col) == False:
+                possible_col.append(col)
+        choice = random.choice(possible_col)
+        return move.Move(self, choice)
+
+
     '''ai_piece=self.piece
         if self.name[-1] == '2':
             opp_number=0

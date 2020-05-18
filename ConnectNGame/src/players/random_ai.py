@@ -9,7 +9,7 @@ class RandomAI(Player):
     def __init__(self, name: object, piece: object):
         super().__init__(name,piece)
 
-    def get_move(self,board) -> "move.Move":
+    def get_move(self,board: Board) -> "move.Move":
         possible_col=[]
         for col in range(board.num_cols):
             if board.is_column_full(col) == False:
@@ -18,7 +18,7 @@ class RandomAI(Player):
         return move.Move(self,choice)
 
     @staticmethod
-    def create_Random(players: List["Player"], blank_char: str,num_player: int):
+    def create_Random(players: List["Player"], blank_char: str,num_player: int) -> "RandomAI":
         name = RandomAI.get_name(players, num_player)
         piece = RandomAI.get_valid_piece(players, blank_char)
         return RandomAI(name,piece)

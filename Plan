@@ -1,3 +1,5 @@
+
+       plan for simpleai.get_move()
         if self.game_playing.players[0] == self:
             opp = self.game_playing.players[1]
         else:
@@ -7,19 +9,19 @@
                 potential_move = move.Move(self, cols)
                 potential_move.make(board)
                 if potential_move.ends_game(self.game_playing):
-                    board.contents[potential_move.row][cols] = board.blank_char
+                    board.remove_piece_from_column(cols)
                     return move.Move(self, cols)
                 else:
-                    board.contents[potential_move.row][cols] = board.blank_char
+                    board.remove_piece_from_column(cols)
         for coln in range(board.num_cols):
             if not board.is_column_full(coln):
                 opp_move = move.Move(opp, coln)
                 opp_move.make(board)
                 if opp_move.ends_game(self.game_playing):
-                    board.contents[opp_move.row][coln] = board.blank_char
+                    board.remove_piece_from_column(coln)
                     return move.Move(self, coln)
                 else:
-                    board.contents[opp_move.row][coln] = board.blank_char
+                    board.remove_piece_from_column(coln)
         possible_col = []
         for col in range(board.num_cols):
             if board.is_column_full(col) == False:

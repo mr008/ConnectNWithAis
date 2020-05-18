@@ -10,7 +10,7 @@ def main() -> None:
     :return:
     """
     #address = "E:/coding programs/ConnectNWithAis/config_files/3X3X3.txt"
-    address = "/Users/audeclairemoats/PycharmProject/ConnectN/config_files/3X3X3.txt"
+    address = "/Users/audeclairemoats/PycharmProject/ConnectN/config_files/connect4.txt"
     connectn = Game.create_game_from_file(address)
     connectn.play()
 """
