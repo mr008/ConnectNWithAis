@@ -78,13 +78,16 @@ class Game(object):
             while True:
                 try:
                     type = input(f'Choose the type for Player {player_num}\nEnter Human or Random or Simple: ').strip()
-                    if type[0].lower() == 'h':
+                    h_text="human"
+                    s_text="simple"
+                    r_text="random"
+                    if h_text.startswith(type.lower()):
                         self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
                         break
-                    elif type[0].lower() == 'r':
+                    elif r_text.startswith(type.lower()):
                         self.players.append(RandomAI.random(self.players, self.board.blank_char, player_num))
                         break
-                    elif type[0].lower() == 's':
+                    elif s_text.startswith(type.lower()):
                         self.players.append(SimpleAI.simple(self.players, self.board.blank_char, player_num, self))
                         break
                     else:
