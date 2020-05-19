@@ -9,12 +9,10 @@ def main() -> None:
     Run the program
     :return:
     """
-
     address = "E:/coding programs/ConnectNWithAis/config_files/3X3X3.txt"
-    ran_seed=30
-    random.seed(ran_seed)
+    #ran_seed=30
+    #random.seed(ran_seed)
     #address = "/Users/audeclairemoats/PycharmProject/ConnectN/config_files/3X3X3.txt"
-
     '''
     if len(sys.argv) == 2:
         address = sys.argv[1]

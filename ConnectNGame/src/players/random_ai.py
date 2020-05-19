@@ -6,7 +6,7 @@ from ConnectNGame.src import move
 
 class RandomAI(Player):
 
-    def __init__(self, name: object, piece: object) -> None:
+    def __init__(self, name: str, piece: str) -> None:
         super().__init__(name, piece)
 
     def get_move(self, board: Board) -> "move.Move":

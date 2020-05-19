@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 
 
 class Player(ABC):
-    def __init__(self, name: object, piece: object) -> None:
+    def __init__(self, name: str, piece: str) -> None:
         self.name = name
         self.piece = piece
 
@@ -26,11 +26,11 @@ class Player(ABC):
                 return player_move
 
     @abstractmethod
-    def get_valid_piece(self):
+    def get_valid_piece(players: List["Player"], blank_char: str, case_matters: bool = False) -> str:
         pass
 
     @abstractmethod
-    def get_move(self,board) -> "move.Move":
+    def get_move(self, board: "Board") -> "move.Move":
         pass
 
     def __str__(self) -> str:

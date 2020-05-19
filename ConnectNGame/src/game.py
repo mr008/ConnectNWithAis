@@ -88,7 +88,7 @@ class Game(object):
                         self.players.append(SimpleAI.simple(self.players, self.board.blank_char, player_num, self))
                         break
                     else:
-                        r = type
+                        r = type.lower()
                         raise ValueError(r)
                 except ValueError as r:
                     print(r,'is not one of Human or Random or Simple. Please try again.')
