@@ -21,6 +21,8 @@ class EmptySpotError(BoardError):
 
 class Board(object):
 
+    _number_of_pieces_in_columns: List[int]
+
     def __init__(self, num_rows: int, num_cols: int, blank_char: str) -> None:
         self.contents = [[blank_char for col in range(num_cols)] for row in range(num_rows)]
         self.blank_char = blank_char
