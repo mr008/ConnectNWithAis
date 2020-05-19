@@ -34,7 +34,7 @@ class Player(ABC):
         pass
 
     def __str__(self) -> str:
-        return self.name
+        return str(self.name)
 
     def __eq__(self, other: Any) -> bool:
         return isinstance(other, Player) and \
