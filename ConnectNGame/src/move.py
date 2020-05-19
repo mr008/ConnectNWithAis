@@ -5,7 +5,6 @@ from ConnectNGame.src.players import player
 
 
 
-
 class MoveError(Exception):
     pass
 
@@ -62,4 +61,3 @@ class Move(object):
 
     def __ne__(self, other: Any) -> bool:
         return not self == other
-
