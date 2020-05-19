@@ -74,7 +74,7 @@ class Game(object):
         player_num = 0
         for _ in range(num_players):
             player_num += 1
-            type = input(f'Choose the type for Player {player_num}\nEnter Human or Random or Simple:').strip()
+            type = input(f'Choose the type for Player {player_num}\nEnter Human or Random or Simple: ').strip()
             if type[0].lower() == 'h':
                 self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
             if type[0].lower() == 'r':

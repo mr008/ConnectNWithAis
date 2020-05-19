@@ -159,7 +159,7 @@ class Board(object):
         :param: col: the column to start at
         :return: the number of matches to the piece at row,col moving horizontally
         """
-        return self._count_matches_forwards_and_backwards(row, col, 0,1)
+        return self._count_matches_forwards_and_backwards(row, col, 0, 1)
 
     def count_matches_vertically(self, row: int, col: int) -> int:
         """
@@ -168,7 +168,7 @@ class Board(object):
         :param: col: the column to start at
         :return: the number of matches to the piece at row,col moving vertically
         """
-        return self._count_matches_forwards_and_backwards(row, col, 1,0)
+        return self._count_matches_forwards_and_backwards(row, col, 1, 0)
 
     def count_matches_in_right_diagonal(self, row: int, column: int) -> int:
         """
@@ -285,4 +285,3 @@ class Board(object):
 
     def __str__(self) -> str:
         return repr(self)
-

@@ -15,7 +15,7 @@ class SimpleAI(RandomAI):
 
 
     def get_simple_name(players: List["Player"],num_player: int) -> str:
-        name = "SimpleAI " + str(num_player)
+        name = "SimpleAi " + str(num_player)
         return name
 
     def create_Simple(players: List["Player"], blank_char: str,num_player: int, game: "game.Game")-> "SimpleAI":

@@ -36,7 +36,7 @@ class HumanPlayer(Player):
         :raises ValueError if the piece is not valid
         """
         player_num = len(players) + 1
-        piece = input(f'Player {player_num} enter your piece: ').strip()
+        piece = input(f'HumanPlayer {player_num} enter your piece: ').strip()
         cmp_piece = piece if case_matters else piece.lower()
         player_pieces = {player.piece if case_matters else player.piece.lower(): player for player in players}
 
@@ -65,7 +65,7 @@ class HumanPlayer(Player):
         """
         player_num = len(players) + 1
         player_names = {player.name if case_matters else player.name.lower() for player in players}
-        name = input(f'Player {player_num} enter your name: ').strip()
+        name = input(f'HumanPlayer {player_num} enter your name: ').strip()
         cmp_name = name if case_matters else name.lower()
         if not name:
             raise ValueError('Your name cannot be the empty string or whitespace.')
