@@ -92,6 +92,8 @@ class Game(object):
                         raise ValueError(r)
                 except ValueError as r:
                     print(r,'is not one of Human or Random or Simple. Please try again.')
+                except IndexError:
+                    print(' is not one of Human or Random or Simple. Please try again.')
 
 
 
