@@ -23,7 +23,7 @@ class SimpleAI(RandomAI):
         piece = SimpleAI.get_valid_piece(players, blank_char)
         return SimpleAI(name, piece, game)
 
-    def get_move(self, board: Board) -> move.Move:
+    def get_move(self, board: Board) -> "move.Move":
         if self.game_playing.players[0] == self:
             opp = self.game_playing.players[1]
         else:
