@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 
 
 class Player(ABC):
-    def __init__(self, name: object, piece: object) -> object:
+    def __init__(self, name: object, piece: object) -> None:
         self.name = name
         self.piece = piece
 
@@ -43,4 +43,3 @@ class Player(ABC):
 
     def __ne__(self, other: Any) -> bool:
         return not self == other
-

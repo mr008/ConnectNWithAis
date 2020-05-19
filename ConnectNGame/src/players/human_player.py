@@ -3,7 +3,7 @@ from ConnectNGame.src.players.player import Player
 from typing import List
 
 class HumanPlayer(Player):
-    def __init__(self,name: object, piece: object):
+    def __init__(self, name: object, piece: object) -> None:
         super().__init__(name, piece)
 
     @staticmethod
@@ -77,7 +77,7 @@ class HumanPlayer(Player):
 
 
 
-    def get_move(self,board) -> "move.Move":
+    def get_move(self, board) -> "move.Move":
         """
         Get a move from the user
         :return: the move the user made
@@ -85,4 +85,3 @@ class HumanPlayer(Player):
         """
         str_move = input(f'{self.name}, please enter the column you want to play in: ')
         return move.Move.from_string(self, str_move)
-

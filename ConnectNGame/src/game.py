@@ -4,6 +4,7 @@ from ConnectNGame.src.players.simple_ai import SimpleAI
 from ConnectNGame.src.players import player
 from ConnectNGame.src.board import Board
 from ConnectNGame.src.players.human_player import HumanPlayer
+
 class Game(object):
 
     @staticmethod
@@ -81,16 +82,16 @@ class Game(object):
                         self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
                         break
                     elif type[0].lower() == 'r':
-                        self.players.append(RandomAI.create_Random(self.players,self.board.blank_char,player_num))
+                        self.players.append(RandomAI.random(self.players, self.board.blank_char, player_num))
                         break
                     elif type[0].lower() == 's':
-                        self.players.append(SimpleAI.create_Simple(self.players, self.board.blank_char,player_num,self))
+                        self.players.append(SimpleAI.simple(self.players, self.board.blank_char, player_num, self))
                         break
                     else:
-                        r=type
+                        r = type
                         raise ValueError(r)
                 except ValueError as r:
-                    print(r,'is not one of Human or Random or Simple. Please try again.↵')
+                    print(r,'is not one of Human or Random or Simple. Please try again.')
 
 
 
@@ -145,5 +146,3 @@ class Game(object):
             print(f'{self.cur_player} won the game!')
         else:
             print('Tie Game.')
-
-
