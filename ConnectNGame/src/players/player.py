@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 
 
 class Player(ABC):
-    def __init__(self, name: object, piece: object):
+    def __init__(self, name: object, piece: object) -> None:
         self.name = name
         self.piece = piece
 
@@ -33,7 +33,7 @@ class Player(ABC):
     def get_move(self,board) -> "move.Move":
         pass
 
-    def __str__(self) -> object:
+    def __str__(self) -> str:
         return self.name
 
     def __eq__(self, other: Any) -> bool:
