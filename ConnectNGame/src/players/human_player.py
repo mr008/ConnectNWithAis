@@ -1,9 +1,10 @@
+from typing import List
 from ConnectNGame.src import move
 from ConnectNGame.src.players.player import Player
-from typing import List
+from ConnectNGame.src.board import Board
 
 class HumanPlayer(Player):
-    def __init__(self, name: object, piece: object) -> None:
+    def __init__(self, name: str, piece: str) -> None:
         super().__init__(name, piece)
 
     @staticmethod
@@ -77,7 +78,7 @@ class HumanPlayer(Player):
 
 
 
-    def get_move(self, board) -> "move.Move":
+    def get_move(self, board: "Board" ) -> "move.Move":
         """
         Get a move from the user
         :return: the move the user made

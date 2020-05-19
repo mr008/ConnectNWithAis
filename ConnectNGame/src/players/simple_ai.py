@@ -8,7 +8,7 @@ from .player import Player
 
 class SimpleAI(RandomAI):
 
-    def __init__(self, name: object, piece: object, game: "game.Game") -> None:
+    def __init__(self, name: str, piece: str, game: "game.Game") -> None:
         super().__init__(name, piece)
         self.game_playing = game
 
