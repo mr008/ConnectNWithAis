@@ -25,7 +25,7 @@ class RandomAI(Player):
 
     @staticmethod
     def get_name(players: List["Player"],num_player: int):
-        name = "RandomAI " + str(num_player)
+        name = "RandomAi " + str(num_player)
         return name
 
     @staticmethod
