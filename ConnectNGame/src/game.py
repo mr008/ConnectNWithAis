@@ -90,7 +90,7 @@ class Game(object):
                         r=type
                         raise ValueError(r)
                 except ValueError as r:
-                    print(r,'is not one of Human or Random or Simple. Please try again.↵')
+                    print(r,'is not one of Human or Random or Simple. Please try again.')
 
 
 
