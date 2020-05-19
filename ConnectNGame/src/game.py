@@ -81,14 +81,16 @@ class Game(object):
                     h_text="human"
                     s_text="simple"
                     r_text="random"
-                    if h_text.startswith(type.lower()):
-                        self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
-                        break
+                    if not type:
+                        raise ValueError(" is not one of Human or Random or Simple. Please try again.'")
                     elif r_text.startswith(type.lower()):
                         self.players.append(RandomAI.random(self.players, self.board.blank_char, player_num))
                         break
                     elif s_text.startswith(type.lower()):
                         self.players.append(SimpleAI.simple(self.players, self.board.blank_char, player_num, self))
+                        break
+                    elif h_text.startswith(type.lower()):
+                        self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
                         break
                     else:
                         r = type.lower()
