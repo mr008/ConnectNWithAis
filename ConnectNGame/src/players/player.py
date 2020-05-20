@@ -26,7 +26,7 @@ class Player(ABC):
                 return player_move
 
     @abstractmethod
-    def get_valid_piece(players: List["Player"], blank_char: str, case_matters: bool = False) -> str:
+    def get_valid_piece(self,players: List["Player"], blank_char: str, case_matters: bool = False) -> str:
         pass
 
     @abstractmethod
