@@ -8,6 +8,5 @@ class MyTestCase(unittest.TestCase):
         name = SimpleAI.get_name(2)
         self.assertEqual(name, "SimpleAi 2")
 
-
 if __name__ == '__main__':
     unittest.main()
