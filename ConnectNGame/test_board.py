@@ -70,6 +70,35 @@ class TestBoard(unittest.TestCase):
             with self.subTest(col=col, msg='Play out of bounds'):
                 self.assertRaises(ColumnOutOfBoundsError, the_board.add_piece_to_column, 'X', col)
 
+    def test_remove_piece_from_column(self):
+        the_board = Board(5, 6, '*')
+        answer_contents = copy.deepcopy(the_board.contents)
+        answer_heights = copy.deepcopy(the_board._number_of_pieces_in_columns)
+        pieces_added = 0
+        piece_to_add = 'X'
+
+        # legal moves
+        for row in range(the_board.num_rows):
+            for col in range(the_board.num_cols):
+                with self.subTest(row=row, col=col, pieces_added=pieces_added):
+                    the_board.add_piece_to_column(piece_to_add, col)
+                    answer_contents[row][col] = piece_to_add
+                    answer_heights[col] += 1
+                    self.assertEqual(answer_contents, the_board.contents)
+                    self.assertEqual(answer_heights, the_board._number_of_pieces_in_columns)
+                    pieces_added += 1
+        the_board.remove_piece_from_column(3)
+        answer_contents[4][3] = the_board.blank_char
+        answer_heights[3] -= 1
+        the_board.remove_piece_from_column(2)
+        answer_contents[4][2] = the_board.blank_char
+        answer_heights[2] -= 1
+        the_board.remove_piece_from_column(0)
+        answer_contents[4][0] = the_board.blank_char
+        answer_heights[0] -= 1
+        self.assertEqual(answer_contents, the_board.contents)
+        self.assertEqual(answer_heights, the_board._number_of_pieces_in_columns)
+
     def test_count_max_matches(self):
         the_board = Board(4, 4, '*')
         the_board.contents = [['X', 'X', 'X', 'X'],

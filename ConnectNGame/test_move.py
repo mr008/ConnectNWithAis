@@ -1,7 +1,6 @@
 import unittest
 from ConnectNGame.src import move, game, player, board
 
-
 class TestMove(unittest.TestCase):
     def test_from_string(self):
         test_player = player.Player('Bob', 'X')
