@@ -77,7 +77,7 @@ class Game(object):
             player_num += 1
             while True:
                 try:
-                    print("Choose the type for Player {player_num}".format(player_num))
+                    print('Choose the type for Player {}'.format(player_num))
                     type = input('Enter Human or Random or Simple: ')
                     type1 = type.strip()
                     if type1[0].lower() == 'h':

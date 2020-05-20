@@ -31,9 +31,6 @@ def main() -> None:
     else:
         print('Too many command line arguments ')
         print('Usage: python3 main.py path_to_config_file')
-    connectn = Game.create_game_from_file(address)
-    connectn.play()
-
 
 if __name__ == '__main__':
     main()
