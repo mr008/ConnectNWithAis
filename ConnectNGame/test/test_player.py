@@ -1,7 +1,8 @@
 import unittest
 import copy
 from unittest.mock import patch
-from ConnectNGame.src import player, board, move
+from ConnectNGame.src.players import player
+from ConnectNGame.src import board
 from .print_capturer import PrintCapturer
 
 
