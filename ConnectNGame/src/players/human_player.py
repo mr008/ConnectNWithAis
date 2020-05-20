@@ -17,7 +17,7 @@ class HumanPlayer(Player):
         """
         while True:
             try:
-                name = HumanPlayer.get_valid_name(players)
+                name = get_valid_name(players)
                 piece = HumanPlayer.get_valid_piece(players, blank_char)
                 return HumanPlayer(name, piece)
             except ValueError as error:
@@ -53,31 +53,6 @@ class HumanPlayer(Player):
         else:
             return piece
 
-
-    @staticmethod
-    def get_valid_name(players: List["Player"], case_matters: bool = False) -> str:
-        """
-        Check if name is a valid name for this player
-        :param players:  The other players in the game
-        :param case_matters: Whether capitalization matters or not
-        :return: The name the user has chosen
-        :raises: ValueError if the name chosen is not vlaid
-
-        """
-        player_num = len(players) + 1
-        player_names = {player.name if case_matters else player.name.lower() for player in players}
-        name = input(f'HumanPlayer {player_num} enter your name: ').strip()
-        cmp_name = name if case_matters else name.lower()
-        if not name:
-            raise ValueError('Your name cannot be the empty string or whitespace.')
-        elif cmp_name in player_names:
-            raise ValueError(f'You cannot use {name} for your name as someone else is already using it.')
-        else:
-            return name
-
-
-
-
     def get_move(self, board: "Board" ) -> "move.Move":
         """
         Get a move from the user
@@ -86,3 +61,24 @@ class HumanPlayer(Player):
         """
         str_move = input(f'{self.name}, please enter the column you want to play in: ')
         return move.Move.from_string(self, str_move)
+
+
+def get_valid_name(players: List["Player"], case_matters: bool = False) -> str:
+    """
+    Check if name is a valid name for this player
+    :param players:  The other players in the game
+    :param case_matters: Whether capitalization matters or not
+    :return: The name the user has chosen
+    :raises: ValueError if the name chosen is not vlaid
+
+    """
+    player_num = len(players) + 1
+    player_names = {player.name if case_matters else player.name.lower() for player in players}
+    name = input(f'HumanPlayer {player_num} enter your name: ').strip()
+    cmp_name = name if case_matters else name.lower()
+    if not name:
+        raise ValueError("Your name cannot be the empty string or whitespace.")
+    elif cmp_name in player_names:
+        raise ValueError(f"You cannot use {name} for your name as someone else is already using it.")
+    else:
+        return name

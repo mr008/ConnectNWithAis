@@ -77,23 +77,26 @@ class Game(object):
             player_num += 1
             while True:
                 try:
-                    print('Choose the type for Player {}'.format(player_num))
-                    type = input('Enter Human or Random or Simple: ')
-                    type1 = type.strip()
-                    if type1[0].lower() == 'h':
-                        self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
-                        break
-                    elif type1[0].lower() == 'r':
+                    type = input(f'Choose the type for Player {player_num}\nEnter Human or Random or Simple: ').strip()
+                    h_text="human"
+                    s_text="simple"
+                    r_text="random"
+                    if not type:
+                        raise ValueError(" is not one of Human or Random or Simple. Please try again.'")
+                    elif r_text.startswith(type.lower()):
                         self.players.append(RandomAI.random(self.players, self.board.blank_char, player_num))
                         break
-                    elif type1[0].lower() == 's':
+                    elif s_text.startswith(type.lower()):
                         self.players.append(SimpleAI.simple(self.players, self.board.blank_char, player_num, self))
                         break
+                    elif h_text.startswith(type.lower()):
+                        self.players.append(HumanPlayer.create_from_user_input(self.players, self.board.blank_char))
+                        break
                     else:
-                        r = type
+                        r = type.lower()
                         raise ValueError(r)
                 except ValueError as r:
-                    print(r, 'is not one of Human or Random or Simple. Please try again.')
+                    print(r,'is not one of Human or Random or Simple. Please try again.')
                 except IndexError:
                     print(' is not one of Human or Random or Simple. Please try again.')
 
