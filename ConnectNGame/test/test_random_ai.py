@@ -5,20 +5,26 @@ from ConnectNGame.src.players import random_ai
 from ConnectNGame.src.board import Board
 from ConnectNGame.src import move
 from ConnectNGame.src.players.random_ai import RandomAI
+from ConnectNGame.src.players.human_player import HumanPlayer
 import random
 
 class MyTestCase(unittest.TestCase):
 
     def test_get_name(self):
-        ai=RandomAI("ai","*")
-        ai.get_name(1)
-        self.assertEqual(ai.get_name(1),"RandomAi 1")
+        name = RandomAI.get_name(1)
+        self.assertEqual(name, "RandomAi 1")
+
+    def test_get_valid_piece(self):
+        my_players = [HumanPlayer('sam', '#'),HumanPlayer('Jess', '@')]
+        my_piece = RandomAI.get_valid_piece(my_players, '$')
+        self.assertIsNot(my_piece, my_players[0].piece, my_players[1].piece)
+        self.assertIsNot(my_piece,'$')
+        self.assertIsNot(my_piece,' ')
+
     def test_random(self):
         RandomAI.random([],"*",1)
         self.assertEqual()
 
-    def
-    self.assertEqual
 
 if __name__ == '__main__':
     unittest.main()

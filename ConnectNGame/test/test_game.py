@@ -54,9 +54,5 @@ class TestGame(unittest.TestCase):
                     else:
                         self.assertEqual(answer, self.game.is_part_of_win(row_index, col_index))
 
-    def test_setup_players(self):
-
-
-
 if __name__ == '__main__':
     unittest.main()
