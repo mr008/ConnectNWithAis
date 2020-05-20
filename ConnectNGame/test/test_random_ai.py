@@ -8,7 +8,7 @@ from ConnectNGame.src.players.random_ai import RandomAI
 from ConnectNGame.src.players.human_player import HumanPlayer
 import random
 
-class MyTestCase(unittest.TestCase):
+class TestRandomAI(unittest.TestCase):
 
     def test_get_name(self):
         name = RandomAI.get_name(1)
