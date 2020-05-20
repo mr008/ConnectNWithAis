@@ -82,7 +82,7 @@ class Game(object):
                     s_text="simple"
                     r_text="random"
                     if not type:
-                        raise ValueError(" is not one of Human or Random or Simple. Please try again.'")
+                        raise ValueError(type)
                     elif r_text.startswith(type.lower()):
                         self.players.append(RandomAI.random(self.players, self.board.blank_char, player_num))
                         break
