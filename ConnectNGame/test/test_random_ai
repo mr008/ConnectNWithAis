@@ -1,0 +1,17 @@
+import unittest
+from unittest.mock import patch, mock_open
+from ConnectNGame.src import game, board, player
+
+class TestRandomai(unittest.TestCase):
+    def test_get_valid_piece(self):
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    unittest.main()
