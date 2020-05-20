@@ -7,16 +7,18 @@ from ConnectNGame.src import move
 from ConnectNGame.src.players.random_ai import RandomAI
 import random
 
-class TestRandomai(unittest.TestCase):
-    def test_get_move(self):
-        board1=Board(3,3,"*")
-        valid_moves = ['1', '2', '3']
-        random.seed(30)
-        answer = RandomAI.get_move(board1)
-        random.seed(30)
-        test_move = move.Move(random.choice(valid_moves))
-        self.assertEqual(answer, test_move)
+class MyTestCase(unittest.TestCase):
 
+    def test_get_name(self):
+        ai=RandomAI("ai","*")
+        ai.get_name(1)
+        self.assertEqual(ai.get_name(1),"RandomAi 1")
+    def test_random(self):
+        RandomAI.random([],"*",1)
+        self.assertEqual()
+
+    def
+    self.assertEqual
 
 if __name__ == '__main__':
     unittest.main()
