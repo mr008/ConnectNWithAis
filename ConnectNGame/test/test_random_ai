@@ -1,16 +1,21 @@
 import unittest
 from unittest.mock import patch, mock_open
-from ConnectNGame.src import game, board, player
+from ConnectNGame.src import game, board
+from ConnectNGame.src.players import random_ai
+from ConnectNGame.src.board import Board
+from ConnectNGame.src import move
+from ConnectNGame.src.players.random_ai import RandomAI
+import random
 
 class TestRandomai(unittest.TestCase):
-    def test_get_valid_piece(self):
-
-
-
-
-
-
-
+    def test_get_move(self):
+        board1=Board(3,3,"*")
+        valid_moves = ['1', '2', '3']
+        random.seed(30)
+        answer = RandomAI.get_move(board1)
+        random.seed(30)
+        test_move = move.Move(random.choice(valid_moves))
+        self.assertEqual(answer, test_move)
 
 
 if __name__ == '__main__':
