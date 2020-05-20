@@ -21,9 +21,7 @@ class MyTestCase(unittest.TestCase):
         self.assertIsNot(my_piece,'$')
         self.assertIsNot(my_piece,' ')
 
-    def test_random(self):
-        RandomAI.random([],"*",1)
-        self.assertEqual()
+
 
 
 if __name__ == '__main__':

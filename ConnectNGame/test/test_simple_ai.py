@@ -1,10 +1,13 @@
 import unittest
-from ConnectNGame.src.players import simple_ai
+from ConnectNGame.src.players.simple_ai import SimpleAI
+from ConnectNGame.src.board import Board
+from ConnectNGame.src.game import Game
 
-
-class MyTestCase(unittest.TestCase):
+class TestSimpleAi(unittest.TestCase):
     def test_get_simple_name(self):
-        ai = simple_ai.SimpleAI("Boss","%",game)
+        board1=Board(3,3,"*")
+        mygame=Game(board1,3)
+        ai = SimpleAI("Boss","%",mygame)
         ai.get_name(3)
         self.assertEqual(ai.get_name(3), "RandomAi 3")
 
