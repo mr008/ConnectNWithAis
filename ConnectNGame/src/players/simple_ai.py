@@ -47,28 +47,3 @@ class SimpleAI(RandomAI):
                 else:
                     board.remove_piece_from_column(coln)
         return super().get_move(board)
-
-    '''ai_piece=self.piece
-        if self.name[-1] == '2':
-            opp_number=0
-        elif self.name[-1] == '1':
-            opp_number=1
-        for col in range(board.num_cols):
-            board.add_piece_to_column(ai_piece,col)
-            number_pieces_column=board.get_column_pieces()
-            if game.Game.is_part_of_win(number_pieces_column+1,col) == True:
-                choice=col
-                board.sub_piece_to_column(ai_piece, col)
-                return move.Move(self,choice)
-            board.sub_piece_to_column(ai_piece, col)
-        opp_piece = game.players[opp_number].piece
-        for col in range(board.num_cols):
-            board.add_piece_to_column(opp_piece, col)
-            number_pieces_column = board.get_column_pieces()
-            if game.Game.is_part_of_win(number_pieces_column + 1, col) == True:
-                choice = col
-                board.sub_piece_to_column(opp_piece, col)
-                return move.Move(self, choice)
-            board.sub_piece_to_column(opp_piece, col)
-            super().get_move(board)
-    '''
